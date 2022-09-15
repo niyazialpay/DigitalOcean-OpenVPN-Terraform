@@ -14,3 +14,18 @@ With this Terraform file, you can create a server on DigitalOcean and have the I
     terraform init
     terraform apply
     ```
+8. After the Terraform file is finished, you can connect to the server with the following command:
+
+    ```bash
+    ssh root@<server_ip_address>
+    ```
+9. Run the install.sh file with the following command:
+
+    ```bash
+   sh install.sh
+    ```
+10. If you want to delete the server, you can run the following command:
+
+   ```bash
+   terraform destroy
+   ```
