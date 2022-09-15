@@ -1,0 +1,7 @@
+.idea
+.terraform*
+.tfstate
+terraform*
+environment.bat
+environment.sh
+secret_variables.tf
