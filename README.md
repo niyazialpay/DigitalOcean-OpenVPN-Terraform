@@ -26,6 +26,6 @@ With this Terraform file, you can create a server on DigitalOcean and have the I
     ```
 10. If you want to delete the server, you can run the following command:
 
-   ```bash
-   terraform destroy
-   ```
+    ```bash
+    terraform destroy
+    ```
