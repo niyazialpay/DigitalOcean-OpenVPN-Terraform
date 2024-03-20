@@ -17,7 +17,10 @@ resource "digitalocean_droplet" "vpn-server" {
     hostname: ${var.vpn_subdomain}.${var.domain_name}
     fqdn: ${var.vpn_subdomain}.${var.domain_name}
     runcmd:
-        - echo 'yum -y install https://as-repository.openvpn.net/as-repo-centos7.rpm && yum -y install openvpn-as git nano && systemctl enable openvpnas' >> /root/install.sh
+        - echo 'apt update && apt -y install ca-certificates wget net-tools gnupg' >> /root/install.sh
+        - echo 'wget https://as-repository.openvpn.net/as-repo-public.asc -qO /etc/apt/trusted.gpg.d/as-repository.asc' >> /root/install.sh
+        - echo 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/as-repository.asc] http://as-repository.openvpn.net/as/debian jammy main">/etc/apt/sources.list.d/openvpn-as-repo.list' >> /root/install.sh
+        - echo 'apt update && apt -y install openvpn-as' >> /root/install.sh
         - echo 'git clone https://github.com/acmesh-official/acme.sh.git /root/acme.sh' >> /root/install.sh
         - echo 'cd /root/acme.sh' >> /root/install.sh
         - echo "sh acme.sh --install -m ${var.cloudflare_email}" >> /root/install.sh

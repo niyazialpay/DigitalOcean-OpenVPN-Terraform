@@ -13,5 +13,5 @@ variable "network_location"{
 }
 
 variable "image" {
-  default     = "centos-7-x64"
+  default     = "ubuntu-22-04-x64"
 }
